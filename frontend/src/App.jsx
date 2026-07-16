@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import ThreatIntelligence from "./pages/ThreatIntelligence";
 import MainLayout from "./layouts/MainLayout";
 
 function ProtectedPage({ children }) {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/dashboard" element={<ProtectedPage><MainLayout><Dashboard /></MainLayout></ProtectedPage>} />
       <Route path="/assets" element={<ProtectedPage><MainLayout><Assets /></MainLayout></ProtectedPage>} />
       <Route path="/analytics" element={<ProtectedPage><MainLayout><Analytics /></MainLayout></ProtectedPage>} />
+      <Route path="/threat-intelligence" element={<ProtectedPage><MainLayout><ThreatIntelligence /></MainLayout></ProtectedPage>} />
       <Route path="/reports" element={<ProtectedPage><MainLayout><Reports /></MainLayout></ProtectedPage>} />
       <Route path="/settings" element={<ProtectedPage><MainLayout><Settings /></MainLayout></ProtectedPage>} />
       <Route path="/" element={<Navigate to="/dashboard" replace />} />

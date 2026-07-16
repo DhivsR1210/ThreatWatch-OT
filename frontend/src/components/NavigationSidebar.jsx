@@ -4,8 +4,9 @@ import { Activity, Cpu, FileText, ShieldCheck, SlidersHorizontal } from "lucide-
 const links = [
   { label: "Dashboard", to: "/dashboard", icon: Activity },
   { label: "Assets", to: "/assets", icon: Cpu },
-  { label: "Threats", to: "/analytics", icon: ShieldCheck },
-  { label: "Reports", to: "/analytics", icon: FileText },
+  { label: "Threat Intelligence", to: "/threat-intelligence", icon: ShieldCheck },
+  { label: "Threats", to: "/analytics", icon: FileText },
+  { label: "Reports", to: "/reports", icon: FileText },
   { label: "Settings", to: "/settings", icon: SlidersHorizontal },
 ];
 

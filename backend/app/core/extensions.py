@@ -19,7 +19,9 @@ def init_extensions(app):
     db.init_app(app)
     jwt.init_app(app)
 
+    # Ensure all models are imported before auto-creating tables.
     from app.models.token_blocklist import TokenBlocklist
+    from app.models.vulnerability import Vulnerability
 
     @jwt.token_in_blocklist_loader
     def is_token_revoked(_jwt_header, jwt_payload):
