@@ -7,7 +7,9 @@ import Assets from "./pages/Assets";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import MainLayout from "./layouts/MainLayout";
 
 function ProtectedPage({ children }) {
   return <ProtectedRoute>{children}</ProtectedRoute>;
@@ -18,10 +20,11 @@ function App() {
     <Routes>
       <Route path="/login" element={<PublicOnlyRoute><Login /></PublicOnlyRoute>} />
       <Route path="/register" element={<PublicOnlyRoute><Register /></PublicOnlyRoute>} />
-      <Route path="/dashboard" element={<ProtectedPage><Dashboard /></ProtectedPage>} />
-      <Route path="/assets" element={<ProtectedPage><Assets /></ProtectedPage>} />
-      <Route path="/analytics" element={<ProtectedPage><Analytics /></ProtectedPage>} />
-      <Route path="/settings" element={<ProtectedPage><Settings /></ProtectedPage>} />
+      <Route path="/dashboard" element={<ProtectedPage><MainLayout><Dashboard /></MainLayout></ProtectedPage>} />
+      <Route path="/assets" element={<ProtectedPage><MainLayout><Assets /></MainLayout></ProtectedPage>} />
+      <Route path="/analytics" element={<ProtectedPage><MainLayout><Analytics /></MainLayout></ProtectedPage>} />
+      <Route path="/reports" element={<ProtectedPage><MainLayout><Reports /></MainLayout></ProtectedPage>} />
+      <Route path="/settings" element={<ProtectedPage><MainLayout><Settings /></MainLayout></ProtectedPage>} />
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
