@@ -1,5 +1,7 @@
+import AssetWorkspace from "../components/assets/AssetWorkspace";
+
 function Assets() {
-  return <h1>Assets</h1>;
+  return <AssetWorkspace />;
 }
 
 export default Assets;

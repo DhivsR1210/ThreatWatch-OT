@@ -1,5 +1,7 @@
+import AssetWorkspace from "../components/assets/AssetWorkspace";
+
 function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return <AssetWorkspace />;
 }
 
 export default Dashboard;

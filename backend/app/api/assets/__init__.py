@@ -1,0 +1,1 @@
+"""Asset inventory API endpoints."""

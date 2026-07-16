@@ -3,6 +3,7 @@
 from flask import Flask
 from flask_cors import CORS
 
+from app.api.assets.routes import assets_bp
 from app.api.auth.routes import auth_bp
 from app.api.health import health_bp
 from app.core.config import Config
@@ -17,4 +18,5 @@ def create_app(config_object=Config) -> Flask:
     init_extensions(app)
     app.register_blueprint(health_bp, url_prefix="/api")
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
+    app.register_blueprint(assets_bp, url_prefix="/api/assets")
     return app
