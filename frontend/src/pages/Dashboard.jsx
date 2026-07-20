@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Activity, AlertTriangle, BarChart3, CircleDot, ShieldAlert, Signal, Wifi } from "lucide-react";
+import { Activity, AlertTriangle, BarChart3, CircleDot, ShieldAlert, Signal } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from "recharts";
 
 import DashboardKpiCards from "../components/DashboardKpiCards";
@@ -44,6 +44,18 @@ function Dashboard() {
       return acc;
     }, {});
     return ["Online", "Offline", "Maintenance"].map((label) => ({ name: label, value: counts[label] || 0 }));
+  }, [assets]);
+
+  const criticalityData = useMemo(() => {
+    const counts = assets.reduce((acc, asset) => {
+      const criticality = asset.criticality || "Low";
+      acc[criticality] = (acc[criticality] || 0) + 1;
+      return acc;
+    }, {});
+    return ["Critical", "High", "Medium", "Low"].map((label) => ({
+      name: label,
+      value: counts[label] || 0,
+    }));
   }, [assets]);
 
   const riskHeatmapData = useMemo(() => {
@@ -185,7 +197,7 @@ function Dashboard() {
                 }} />
                 <YAxis dataKey="y" type="number" tick={{ fill: "#94a3b8", fontSize: 12 }} axisLine={false} tickLine={false} ticks={[0, 1, 2, 3]} tickFormatter={(value) => ["Low", "Medium", "High", "Critical"][value] ?? ""} />
                 <ZAxis dataKey="size" range={[100, 400]} />
-                <Tooltip cursor={{ stroke: "#60a5fa", strokeDasharray: "3 3" }} contentStyle={{ backgroundColor: "#0f172a", border: "1px solid #1e293b" }} formatter={(value, name) => [value, "Severity count"]} />
+                <Tooltip cursor={{ stroke: "#60a5fa", strokeDasharray: "3 3" }} contentStyle={{ backgroundColor: "#0f172a", border: "1px solid #1e293b" }} formatter={(value) => [value, "Severity count"]} />
                 <Scatter data={riskHeatmapData} fill="#38bdf8" shape={(props) => {
                   const { cx, cy, size, payload } = props;
                   return <rect x={cx - size / 2} y={cy - size / 2} width={size} height={size} rx={6} fill={payload.color} />;
