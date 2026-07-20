@@ -18,7 +18,7 @@ function AssetSummaryCards({ assets }) {
   return (
     <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {cards.map((card) => (
-        <article className="rounded-xl border border-slate-800 bg-slate-900/60 p-5 shadow-sm" key={card.key}>
+        <article className="glass-panel rounded-3xl border p-5 transition hover:-translate-y-1 hover:border-cyan-400/20" key={card.key}>
           <p className="text-sm font-medium text-slate-400">{card.label}</p>
           <p className={`mt-3 text-3xl font-semibold tracking-tight ${card.tone}`}>{values[card.key]}</p>
           <p className="mt-2 text-xs text-slate-500">{card.detail}</p>

@@ -25,16 +25,16 @@ function MainLayout({ children }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#050a16] text-slate-100">
+    <div className="liquid-shell text-slate-100">
       <NavigationSidebar sidebarOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="sm:pl-72">
+      <div className="sm:pl-[19rem]">
         {sidebarOpen && <button className="fixed inset-0 z-20 bg-slate-950/60 sm:hidden" onClick={() => setSidebarOpen(false)} type="button" aria-label="Close sidebar overlay" />}
 
-        <header className="sticky top-0 z-10 border-b border-slate-800/80 bg-[#050a16]/95 backdrop-blur">
+        <header className="glass-header sticky top-3 z-10 mx-3 rounded-3xl border sm:top-4 sm:mx-4">
           <div className="mx-auto flex h-16 items-center justify-between gap-3 px-4 text-slate-100 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3">
-              <button className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900/80 text-slate-300 shadow-sm shadow-cyan-500/10 transition hover:bg-slate-800 sm:hidden" onClick={() => setSidebarOpen(true)} type="button" aria-label="Open navigation menu">
+              <button className="glass-subpanel inline-flex h-11 w-11 items-center justify-center rounded-2xl border text-slate-300 transition sm:hidden" onClick={() => setSidebarOpen(true)} type="button" aria-label="Open navigation menu">
                 <Menu className="h-5 w-5" />
               </button>
               <div>
@@ -47,14 +47,14 @@ function MainLayout({ children }) {
                 <span className="text-sm font-semibold text-slate-100">{user?.first_name} {user?.last_name}</span>
                 <span className="text-xs text-slate-500">SecOps analyst</span>
               </div>
-              <button className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900/80 text-slate-300 transition hover:bg-slate-800" onClick={handleSignOut} type="button" aria-label="Sign out">
+              <button className="glass-subpanel inline-flex h-11 w-11 items-center justify-center rounded-2xl border text-slate-300 transition" onClick={handleSignOut} type="button" aria-label="Sign out">
                 <LogOut className="h-5 w-5" />
               </button>
             </div>
           </div>
         </header>
 
-        <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</main>
+        <main className="mx-auto max-w-7xl px-4 py-9 sm:px-6 lg:px-8">{children}</main>
       </div>
     </div>
   );

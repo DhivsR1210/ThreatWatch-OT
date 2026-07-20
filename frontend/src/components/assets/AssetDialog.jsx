@@ -38,7 +38,7 @@ function AssetDialog({ asset, onClose, onSave }) {
 
   return (
     <div aria-modal="true" className="fixed inset-0 z-50 flex items-end bg-slate-950/75 p-0 backdrop-blur-sm sm:items-center sm:justify-center sm:p-6" role="dialog">
-      <form className="max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-2xl border border-slate-700 bg-slate-900 p-6 shadow-2xl sm:rounded-2xl" onSubmit={submit}>
+      <form className="glass-panel max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-3xl border p-6 sm:rounded-3xl" onSubmit={submit}>
         <div className="flex items-start justify-between gap-4"><div><h2 className="text-lg font-semibold text-slate-100">{asset ? "Edit asset" : "Add asset"}</h2><p className="mt-1 text-sm text-slate-400">Maintain a precise operational technology inventory.</p></div><button aria-label="Close dialog" className="rounded-md p-1 text-slate-400 hover:bg-slate-800 hover:text-white" onClick={onClose} type="button">✕</button></div>
         {error && <p className="mt-5 rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-200" role="alert">{error}</p>}
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -55,18 +55,18 @@ function AssetDialog({ asset, onClose, onSave }) {
           <Field label="Risk score" min="0" max="100" type="number" value={form.risk_score} onChange={update("risk_score")} />
           <Field label="Last seen" type="datetime-local" value={form.last_seen} onChange={update("last_seen")} />
         </div>
-        <div className="mt-7 flex flex-col-reverse gap-3 border-t border-slate-800 pt-5 sm:flex-row sm:justify-end"><button className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800" onClick={onClose} type="button">Cancel</button><button className="rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-cyan-300 disabled:opacity-60" disabled={isSaving} type="submit">{isSaving ? "Saving…" : asset ? "Save changes" : "Add asset"}</button></div>
+        <div className="mt-7 flex flex-col-reverse gap-3 border-t border-white/10 pt-5 sm:flex-row sm:justify-end"><button className="glass-subpanel rounded-xl border px-4 py-2.5 text-sm font-medium text-slate-300" onClick={onClose} type="button">Cancel</button><button className="glass-action rounded-xl bg-cyan-300 px-4 py-2.5 text-sm font-semibold text-slate-950 hover:bg-cyan-200 disabled:opacity-60" disabled={isSaving} type="submit">{isSaving ? "Saving…" : asset ? "Save changes" : "Add asset"}</button></div>
       </form>
     </div>
   );
 }
 
 function Field({ label, ...props }) {
-  return <label className="block text-sm font-medium text-slate-300">{label}<input className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20" {...props} /></label>;
+  return <label className="block text-sm font-medium text-slate-300">{label}<input className="glass-control mt-2 w-full rounded-xl border px-3 py-2 text-sm text-slate-100 outline-none" {...props} /></label>;
 }
 
 function Select({ label, onChange, options, value }) {
-  return <label className="block text-sm font-medium text-slate-300">{label}<select className="mt-2 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20" onChange={onChange} value={value}>{options.map((option) => <option key={option}>{option}</option>)}</select></label>;
+  return <label className="block text-sm font-medium text-slate-300">{label}<select className="glass-control mt-2 w-full rounded-xl border px-3 py-2 text-sm text-slate-100 outline-none" onChange={onChange} value={value}>{options.map((option) => <option key={option}>{option}</option>)}</select></label>;
 }
 
 export default AssetDialog;
