@@ -1,10 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { Activity, Cpu, FileText, ShieldCheck, SlidersHorizontal } from "lucide-react";
+import { Activity, BellRing, Cpu, FileText, ShieldCheck, SlidersHorizontal } from "lucide-react";
 
 const links = [
   { label: "Dashboard", to: "/dashboard", icon: Activity },
   { label: "Assets", to: "/assets", icon: Cpu },
   { label: "Threat Intelligence", to: "/threat-intelligence", icon: ShieldCheck },
+  { label: "Alerts", to: "/alerts", icon: BellRing },
   { label: "Threats", to: "/analytics", icon: FileText },
   { label: "Reports", to: "/reports", icon: FileText },
   { label: "Settings", to: "/settings", icon: SlidersHorizontal },

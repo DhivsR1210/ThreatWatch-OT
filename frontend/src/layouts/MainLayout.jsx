@@ -14,6 +14,7 @@ function MainLayout({ children }) {
   const pageLabel = {
     "/dashboard": "Dashboard",
     "/assets": "Assets",
+    "/alerts": "Alerts",
     "/analytics": "Threats",
     "/reports": "Reports",
     "/settings": "Settings",

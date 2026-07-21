@@ -20,6 +20,7 @@ def init_extensions(app):
     jwt.init_app(app)
 
     # Ensure all models are imported before auto-creating tables.
+    from app.models.alert import Alert
     from app.models.token_blocklist import TokenBlocklist
     from app.models.vulnerability import Vulnerability
 

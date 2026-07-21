@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicOnlyRoute from "./components/PublicOnlyRoute";
 import Analytics from "./pages/Analytics";
+import Alerts from "./pages/Alerts";
 import Assets from "./pages/Assets";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
@@ -24,6 +25,7 @@ function App() {
       <Route path="/dashboard" element={<ProtectedPage><MainLayout><Dashboard /></MainLayout></ProtectedPage>} />
       <Route path="/assets" element={<ProtectedPage><MainLayout><Assets /></MainLayout></ProtectedPage>} />
       <Route path="/analytics" element={<ProtectedPage><MainLayout><Analytics /></MainLayout></ProtectedPage>} />
+      <Route path="/alerts" element={<ProtectedPage><MainLayout><Alerts /></MainLayout></ProtectedPage>} />
       <Route path="/threat-intelligence" element={<ProtectedPage><MainLayout><ThreatIntelligence /></MainLayout></ProtectedPage>} />
       <Route path="/reports" element={<ProtectedPage><MainLayout><Reports /></MainLayout></ProtectedPage>} />
       <Route path="/settings" element={<ProtectedPage><MainLayout><Settings /></MainLayout></ProtectedPage>} />
