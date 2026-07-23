@@ -184,6 +184,37 @@ body::before {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+.topology-canvas .react-flow {
+  background: radial-gradient(circle at 50% 40%, rgba(14, 116, 144, 0.12), transparent 52%), rgba(2, 6, 23, 0.26);
+}
+
+.topology-canvas .react-flow__node {
+  cursor: pointer;
+}
+
+.topology-canvas .react-flow__node:focus-visible .topology-node {
+  outline: 2px solid rgba(103, 232, 249, 0.9);
+  outline-offset: 4px;
+}
+
+.topology-node {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.topology-node:hover {
+  border-color: rgba(103, 232, 249, 0.65);
+  box-shadow: 0 20px 42px rgba(2, 6, 23, 0.42), 0 0 22px rgba(34, 211, 238, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.topology-canvas .react-flow__edge-path {
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.3));
+}
+
+.topology-canvas .react-flow__controls-button {
+  color: #cbd5e1;
+}
+
 table thead {
   background: rgba(15, 23, 42, 0.34);
   backdrop-filter: blur(14px);

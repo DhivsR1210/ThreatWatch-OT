@@ -15,6 +15,7 @@ function MainLayout({ children }) {
     "/dashboard": "Dashboard",
     "/assets": "Assets",
     "/alerts": "Alerts",
+    "/network-topology": "Network Topology",
     "/analytics": "Threats",
     "/reports": "Reports",
     "/settings": "Settings",
