@@ -1,4 +1,5 @@
 import { Clock3, ShieldAlert, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { severityStyles, statusStyles } from "./alertStyles";
 
@@ -21,7 +22,7 @@ function AlertDrawer({ alert, onClose }) {
           <dl className="grid gap-4 sm:grid-cols-2">
             <Detail label="Affected asset">{alert.asset}</Detail>
             <Detail label="Detection source">{alert.source}</Detail>
-            <Detail label="MITRE technique">{alert.mitreTechnique || "Not mapped"}</Detail>
+            <Detail label="MITRE technique">{alert.mitreTechnique ? <Link className="font-mono text-cyan-200 underline-offset-4 hover:text-cyan-100 hover:underline" to={`/mitre?technique=${encodeURIComponent(alert.mitreTechnique)}`}>{alert.mitreTechnique}</Link> : "Not mapped"}</Detail>
             <Detail label="Detected"><span className="inline-flex items-center gap-2"><Clock3 className="h-4 w-4 text-cyan-300" />{formatTimestamp(alert.timestamp)}</span></Detail>
           </dl>
           <div className="glass-panel rounded-2xl border p-4"><div className="flex items-center gap-3"><ShieldAlert className="h-5 w-5 text-cyan-300" /><div><p className="font-semibold text-slate-100">Triage guidance</p><p className="mt-1 text-sm leading-6 text-slate-400">Validate the source and asset context, preserve relevant evidence, and follow the established OT incident response runbook.</p></div></div></div>

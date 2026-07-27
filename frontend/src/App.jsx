@@ -7,6 +7,7 @@ import Alerts from "./pages/Alerts";
 import Assets from "./pages/Assets";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import MitreAttack from "./pages/MitreAttack";
 import NetworkTopology from "./pages/NetworkTopology";
 import Register from "./pages/Register";
 import Reports from "./pages/Reports";
@@ -28,6 +29,7 @@ function App() {
       <Route path="/analytics" element={<ProtectedPage><MainLayout><Analytics /></MainLayout></ProtectedPage>} />
       <Route path="/alerts" element={<ProtectedPage><MainLayout><Alerts /></MainLayout></ProtectedPage>} />
       <Route path="/network-topology" element={<ProtectedPage><MainLayout><NetworkTopology /></MainLayout></ProtectedPage>} />
+      <Route path="/mitre" element={<ProtectedPage><MainLayout><MitreAttack /></MainLayout></ProtectedPage>} />
       <Route path="/threat-intelligence" element={<ProtectedPage><MainLayout><ThreatIntelligence /></MainLayout></ProtectedPage>} />
       <Route path="/reports" element={<ProtectedPage><MainLayout><Reports /></MainLayout></ProtectedPage>} />
       <Route path="/settings" element={<ProtectedPage><MainLayout><Settings /></MainLayout></ProtectedPage>} />

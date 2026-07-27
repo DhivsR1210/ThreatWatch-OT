@@ -3,7 +3,9 @@ import axios from "axios";
 import { clearAccessToken, getAccessToken } from "../utils/auth";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5001/api",
+  // Flask's local development host listens on IPv4. Use the IPv4 loopback
+  // explicitly so browsers do not resolve localhost to an unavailable ::1 socket.
+  baseURL: import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:5001/api",
   headers: {
     "Content-Type": "application/json",
   },

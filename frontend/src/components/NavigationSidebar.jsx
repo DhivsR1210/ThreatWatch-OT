@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Activity, BellRing, Cpu, FileText, Network, ShieldCheck, SlidersHorizontal } from "lucide-react";
+import { Activity, BellRing, Cpu, Crosshair, FileText, Network, ShieldCheck, SlidersHorizontal } from "lucide-react";
 
 const links = [
   { label: "Dashboard", to: "/dashboard", icon: Activity },
@@ -7,6 +7,7 @@ const links = [
   { label: "Threat Intelligence", to: "/threat-intelligence", icon: ShieldCheck },
   { label: "Alerts", to: "/alerts", icon: BellRing },
   { label: "Network Topology", to: "/network-topology", icon: Network },
+  { label: "MITRE ATT&CK", to: "/mitre", icon: Crosshair },
   { label: "Threats", to: "/analytics", icon: FileText },
   { label: "Reports", to: "/reports", icon: FileText },
   { label: "Settings", to: "/settings", icon: SlidersHorizontal },

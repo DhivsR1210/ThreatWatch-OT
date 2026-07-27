@@ -16,6 +16,7 @@ function MainLayout({ children }) {
     "/assets": "Assets",
     "/alerts": "Alerts",
     "/network-topology": "Network Topology",
+    "/mitre": "MITRE ATT&CK",
     "/analytics": "Threats",
     "/reports": "Reports",
     "/settings": "Settings",

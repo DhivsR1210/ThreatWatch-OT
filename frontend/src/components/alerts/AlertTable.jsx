@@ -1,4 +1,5 @@
 import { ArrowDown, ArrowUp, ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { severityStyles, statusStyles } from "./alertStyles";
 
@@ -26,7 +27,7 @@ function AlertTable({ alerts, onSelect, page, pageCount, onPageChange, sort, onS
             {alerts.map((alert) => (
               <tr key={alert.id} className="group cursor-pointer" onClick={() => onSelect(alert)}>
                 <td className="px-5 py-4"><Badge styles={severityStyles} value={alert.severity} /></td>
-                <td className="max-w-xs px-5 py-4"><p className="font-semibold text-slate-100">{alert.title}</p><p className="mt-1 truncate text-xs text-slate-500">{alert.mitreTechnique || "No MITRE technique mapped"}</p></td>
+                <td className="max-w-xs px-5 py-4"><p className="font-semibold text-slate-100">{alert.title}</p>{alert.mitreTechnique ? <Link className="mt-1 inline-flex text-xs font-semibold text-cyan-200 underline-offset-4 hover:text-cyan-100 hover:underline" onClick={(event) => event.stopPropagation()} to={`/mitre?technique=${encodeURIComponent(alert.mitreTechnique)}`}>{alert.mitreTechnique}</Link> : <p className="mt-1 truncate text-xs text-slate-500">No MITRE technique mapped</p>}</td>
                 <td className="px-5 py-4 text-slate-200">{alert.asset}</td>
                 <td className="px-5 py-4 text-slate-400">{alert.source}</td>
                 <td className="px-5 py-4"><Badge styles={statusStyles} value={alert.status} /></td>
